@@ -10,7 +10,7 @@
 * Clone this repository
 
     * Open your terminal or cmd and run this command:
-    * `git clone https://github.com/krauss/BMICalculator.git`
+    * `$ git clone https://github.com/krauss/BMICalculator.git`
     * Next you just cd into the directory and run the command below:    
     *   ```bash
         $ ionic serve
