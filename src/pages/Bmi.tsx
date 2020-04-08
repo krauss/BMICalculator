@@ -1,5 +1,7 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, 
-        IonCard, IonCardContent, IonLabel, IonInput, IonItem, IonButton, IonChip, IonImg, IonThumbnail } from '@ionic/react';
+        IonCard, IonCardContent, IonLabel, IonInput, IonItem, 
+        IonButton, IonChip, IonImg, IonThumbnail, IonGrid, IonRow,
+        IonCol, IonIcon } from '@ionic/react';
 import React from 'react';
 import './Bmi.css';
 
@@ -22,7 +24,7 @@ export class Bmi extends React.Component<{}, any> {
         let txt, color = ''
         let bmiRes;
 
-        bmiRes = ((weight / height) / height).toFixed(3);
+        bmiRes = ((weight / height) / height).toFixed(2);
 
         if ( bmiRes < 18.5 ) {
 
@@ -32,7 +34,7 @@ export class Bmi extends React.Component<{}, any> {
         } else if (bmiRes >= 18.5 && bmiRes < 24.9 ) {
 
             color = "success";
-            txt = "You're OK mate";
+            txt = "All good mate";
 
         } else if (bmiRes > 25 && bmiRes < 29.9 ) {
 
@@ -42,7 +44,7 @@ export class Bmi extends React.Component<{}, any> {
         } else {
 
             color = "danger";
-            txt = "F*cking fat!";
+            txt = "Obese";
 
         }
         
@@ -61,36 +63,57 @@ export class Bmi extends React.Component<{}, any> {
             <IonPage>
                 <IonHeader>
                     <IonToolbar color="primary">
-                        <IonTitle>BMI Calculator</IonTitle>
+                        <IonIcon icon="calculator" />
+                        <IonTitle slot="start"><b>BMI Calculator</b></IonTitle>
                         <IonThumbnail slot="end">
                             <IonImg src="assets/fat_bloke.png"/>
                         </IonThumbnail>
                     </IonToolbar>
                 </IonHeader>
-                <IonContent>
-                    <IonCard>                                
-                        <IonCardContent>
-                            <IonItem>
-                                <IonLabel position="floating">Height (M)</IonLabel>
-                                <IonInput min="0" type="number" value={height}  onIonChange={(e: any) => this.setState({ height: e.detail.value})} required inputmode="numeric"></IonInput>
-                            </IonItem>
-                            <IonItem>
-                                <IonLabel position="floating">Weight (Kg)</IonLabel>
-                                <IonInput min="0" type="number" value={weight} onIonChange={(e: any) => this.setState({ weight: e.detail.value})} required inputmode="numeric"></IonInput>
-                            </IonItem>         
-                            <IonButton expand="block" fill="clear" onClick={() => this.calculateBMI()}><b>Calculate</b></IonButton>
-                        </IonCardContent>
-                    </IonCard>
-                    <IonCard>
-                        <IonCardContent>
-                            <IonItem >
-                                <IonLabel>Your BMI is <b>{bmi}</b></IonLabel>
-                                <IonChip color={chipColor}>
-                                    <IonLabel><b>{chipText}</b></IonLabel>
-                                </IonChip>                                                       
-                            </IonItem>                    
-                        </IonCardContent>
-                    </IonCard> 
+                <IonContent color="light">
+                    <IonGrid>
+                        <IonRow>
+                          <IonCol></IonCol>
+                          <IonCol></IonCol>
+                        </IonRow>
+                        <IonRow >
+                            <IonCol size="1"></IonCol>
+                            <IonCol size="10">
+                                <IonCard>                                
+                                    <IonCardContent>                            
+                                        <IonItem lines="none">
+                                            <IonLabel position="floating">Height (M)</IonLabel>
+                                            <IonInput min="0" type="number" value={height}  onIonChange={(e: any) => this.setState({ height: e.detail.value})} required inputmode="numeric"></IonInput>
+                                        </IonItem>
+                                        <IonItem lines="none">
+                                            <IonLabel position="floating">Weight (Kg)</IonLabel>
+                                            <IonInput min="0" type="number" value={weight} onIonChange={(e: any) => this.setState({ weight: e.detail.value})} required inputmode="numeric"></IonInput>
+                                        </IonItem>         
+                                        <IonButton expand="block" color="primary" onClick={() => this.calculateBMI()}><b>Calculate</b></IonButton>
+                                    </IonCardContent>
+                                </IonCard>
+                            </IonCol>
+                            <IonCol size="1"></IonCol>
+                        </IonRow>
+                        <IonRow>
+                          <IonCol size="1"></IonCol>
+                          <IonCol size="10">
+                            <IonCard>
+                                <IonCardContent>
+                                    <IonItem lines="none">
+                                        <IonLabel>BMI: <b>{bmi}</b></IonLabel>
+                                        <IonChip color={chipColor}>
+                                            <IonLabel><b>{chipText}</b></IonLabel>
+                                        </IonChip>                                                       
+                                    </IonItem>                    
+                                </IonCardContent>
+                            </IonCard>  
+                          </IonCol>
+                          <IonCol size="1"></IonCol>
+                        </IonRow>
+                    </IonGrid>    
+                    
+                     
                 </IonContent>
             </IonPage>    
         );

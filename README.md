@@ -1,11 +1,13 @@
-## BMI Calculator
+## [BMI Calculator](https://bmi-calculator.now.sh/)
 
-#### How to run this application:
+A basic implementation of a BMI calculator written in [Ionic React](https://ionicframework.com/docs/react).
+It looks better on a mobile device.
+
+#### How to run this application on your desktop:
 
 * Install Ionic
 
     * [Installation guide](https://ionicframework.com/docs/intro/cli)
-
 
 * Clone this repository
 
@@ -18,4 +20,4 @@
         $ ionic serve
         ```
 
-P.S: Don't worry, a browser will automatically be opened in the end so you can test the application
+P.S: Don't worry, a browser will automatically be opened in the end of the start up process
