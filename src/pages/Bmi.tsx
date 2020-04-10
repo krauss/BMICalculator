@@ -34,7 +34,7 @@ export class Bmi extends React.Component<{}, any> {
         } else if (bmiRes >= 18.5 && bmiRes < 24.9 ) {
 
             color = "success";
-            txt = "All good mate";
+            txt = "You're OK";
 
         } else if (bmiRes > 25 && bmiRes < 29.9 ) {
 
@@ -44,7 +44,7 @@ export class Bmi extends React.Component<{}, any> {
         } else {
 
             color = "danger";
-            txt = "Obese";
+            txt = "Too fat";
 
         }
         
@@ -77,8 +77,8 @@ export class Bmi extends React.Component<{}, any> {
                           <IonCol></IonCol>
                         </IonRow>
                         <IonRow >
-                            <IonCol size="1"></IonCol>
-                            <IonCol size="10">
+                            <IonCol size="0.5"></IonCol>
+                            <IonCol size="11">
                                 <IonCard>                                
                                     <IonCardContent>                            
                                         <IonItem lines="none">
@@ -93,11 +93,11 @@ export class Bmi extends React.Component<{}, any> {
                                     </IonCardContent>
                                 </IonCard>
                             </IonCol>
-                            <IonCol size="1"></IonCol>
+                            <IonCol size="0.5"></IonCol>
                         </IonRow>
                         <IonRow>
-                          <IonCol size="1"></IonCol>
-                          <IonCol size="10">
+                          <IonCol size="0.5"></IonCol>
+                          <IonCol size="11">
                             <IonCard>
                                 <IonCardContent>
                                     <IonItem lines="none">
@@ -109,7 +109,7 @@ export class Bmi extends React.Component<{}, any> {
                                 </IonCardContent>
                             </IonCard>  
                           </IonCol>
-                          <IonCol size="1"></IonCol>
+                          <IonCol size="0.5"></IonCol>
                         </IonRow>
                     </IonGrid>    
                     
