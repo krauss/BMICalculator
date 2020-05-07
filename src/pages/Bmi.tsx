@@ -44,7 +44,7 @@ export class Bmi extends React.Component<{}, any> {
         } else {
 
             color = "danger";
-            txt = "Fatty";
+            txt = "Obese";
 
         }
         
@@ -82,11 +82,11 @@ export class Bmi extends React.Component<{}, any> {
                                 <IonCard>                                
                                     <IonCardContent>                            
                                         <IonItem lines="none">
-                                            <IonLabel position="floating">Height (M)</IonLabel>
+                                            <IonLabel position="floating">Height (m)</IonLabel>
                                             <IonInput min="0" type="number" value={height}  onIonChange={(e: any) => this.setState({ height: e.detail.value})} required inputmode="numeric"></IonInput>
                                         </IonItem>
                                         <IonItem lines="none">
-                                            <IonLabel position="floating">Weight (Kg)</IonLabel>
+                                            <IonLabel position="floating">Weight (kg)</IonLabel>
                                             <IonInput min="0" type="number" value={weight} onIonChange={(e: any) => this.setState({ weight: e.detail.value})} required inputmode="numeric"></IonInput>
                                         </IonItem>         
                                         <IonButton expand="block" color="primary" onClick={() => this.calculateBMI()}><b>Calculate</b></IonButton>
